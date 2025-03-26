@@ -1,0 +1,17 @@
+.list__header {
+  position: sticky;
+  height: 3rem;
+  top: 6rem;
+  background-color: var(--main-background-color);
+  padding-top: 0.5rem;
+  width: calc(100% + 4vw);
+  margin-left: -2vw;
+}
+
+@media screen and (min-width: 1024px) {
+  .list__header {
+    position: relative;
+    top: 0;
+    padding-bottom: 3.5rem;
+  }
+}
