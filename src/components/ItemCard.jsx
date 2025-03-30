@@ -1,31 +1,28 @@
 import styles from './ItemCard.module.css';
 
 export const ItemCard = ({ item: { status, title, description } }) => {
-  let statusModifier = styles['itemCard__status'];
-  let titleModifier = styles['itemCard__title'];
-  const statusUpperCase = status.toUpperCase();
+  const statusModifier = {
+    pending: styles['itemCard__status--pending'],
+    'in-progress': styles['itemCard__status--in-progress'],
+    completed: styles['itemCard__status--completed'],
+  };
 
-  if (status === 'done') {
-    statusModifier = styles['itemCard__status--done'];
-    titleModifier = styles['itemCard__title--done'];
-  }
-  if (status === 'in progress') {
-    statusModifier = styles['itemCard__status--in-progress'];
-    titleModifier = styles['itemCard__title--in-progress'];
-  }
-  if (status === 'pending') {
-    statusModifier = styles['itemCard__status--pending'];
-    titleModifier = styles['itemCard__title--pending'];
-  }
+  const titleModifier = {
+    pending: styles['itemCard__title--pending'],
+    'in-progress': styles['itemCard__title--in-progress'],
+    completed: styles['itemCard__title--completed'],
+  };
 
   return (
     <>
-      <h4 className={`${styles['itemCard__title']} ${titleModifier}`}>
+      <h4 className={`${styles['itemCard__title']} ${titleModifier[status]}`}>
         {title}
       </h4>
       <p className={styles['itemCard__description']}>{description}</p>
-      <span className={`${styles['itemCard__status']} ${statusModifier}`}>
-        {statusUpperCase}
+      <span
+        className={`${styles['itemCard__status']} ${statusModifier[status]}`}
+      >
+        {status.toUpperCase()}
       </span>
     </>
   );
