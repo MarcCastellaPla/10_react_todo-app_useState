@@ -5,7 +5,7 @@ export const ItemsList = ({ itemsList }) => {
   return (
     <ul className={styles['taskList__items']}>
       {itemsList.map((item) => (
-        <li key={item.uuid}>
+        <li key={item.id}>
           <ItemCard item={item} />
         </li>
       ))}

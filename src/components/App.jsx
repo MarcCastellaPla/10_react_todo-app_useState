@@ -1,23 +1,28 @@
+import { ItemsList } from './ItemsList.jsx';
 import { Header } from './Header.jsx';
 import { Subheader } from './Subheader.jsx';
 import { ListHeader } from './ListHeader.jsx';
-import { ItemsList } from './ItemsList.jsx';
 import { ListContainer } from './ListContainer.jsx';
+import { HeaderContainer } from './HeaderWrapper.jsx';
+import { TaskForm } from './TaskForm.jsx';
+import { useTodos } from '../hooks/useTodos';
+
 import './App.css';
-import { taskList } from './data/tasks.js';
-import { HeaderContainer } from './HeaderContainer.jsx';
 
 const App = () => {
+  const { todos, handleCreateTask } = useTodos();
+
   return (
     <>
       <HeaderContainer>
         <Header />
         <Subheader subtitle="Todo List Manager" />
       </HeaderContainer>
-
+      <TaskForm onCreateTask={handleCreateTask} />
+      <ListContainer todos={todos} />
       <ListContainer>
-        <ListHeader content="Todo List" />
-        <ItemsList itemsList={taskList} />
+        <ListHeader />
+        <ItemsList itemsList={todos} />
       </ListContainer>
     </>
   );
