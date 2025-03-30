@@ -33,6 +33,9 @@
     "vitest": "^3.0.9"
   },
   "lint-staged": {
-    "*.js": "npm run lint:fix"
+    "*.js": [
+      "npm run lint:fix",
+      "eslint --cache --fix"
+    ]
   }
 }

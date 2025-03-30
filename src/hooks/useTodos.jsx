@@ -6,7 +6,6 @@ export function useTodos() {
   const [todos, setTodos] = useState(INITIAL_TODOS_STATE);
 
   const handleCreateTask = (newTodo) => {
-    console.log({ newTodo });
     setTodos((currentTodos) => {
       return [...currentTodos, newTodo];
     });
