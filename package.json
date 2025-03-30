@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest --run",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint:fix": "eslint --cache --fix"
   },
   "dependencies": {
     "react": "19.0.0",
@@ -33,9 +34,6 @@
     "vitest": "^3.0.9"
   },
   "lint-staged": {
-    "*.js": [
-      "npm run lint:fix",
-      "eslint --cache --fix"
-    ]
+    "*.js": "npm run lint:fix"
   }
 }
